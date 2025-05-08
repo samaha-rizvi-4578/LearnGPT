@@ -2,13 +2,17 @@
 
 LearnGPT is a compact Transformer-based Question Answering model trained from scratch on the SQuAD v1.1 dataset. It focuses on answering factual questions from given contexts and is designed with extensibility for educational dialogue systems.
 
+---
+
 ## 🚀 Features
+- Fine-tuning a pre-trained BERT model for Question Answering
+- Building a Transformer-based model from scratch
+- Comparison of performance between fine-tuned and scratch-built models
 - Custom tokenizer and vocabulary
 - Pure PyTorch implementation of Encoder-only Transformer
 - Trainable QA head for predicting answer spans
 - Evaluation using Exact Match and F1 Score
 - Inference-ready pipeline
-- Educational assistant logic for extension
 
 ---
 
@@ -20,6 +24,11 @@ LearnGPT is a compact Transformer-based Question Answering model trained from sc
 ---
 
 ## 🏗️ Model Architecture
+### Fine-Tuned Model
+- Pre-trained BERT model (`bert-base-uncased`) fine-tuned for QA
+- QA Head: Linear layers for start/end position prediction
+
+### Scratch-Built Model
 - Token Embedding + Positional Encoding
 - Transformer Encoder (4 layers, 8 heads)
 - QA Head: Linear layers for start/end position prediction
@@ -27,6 +36,14 @@ LearnGPT is a compact Transformer-based Question Answering model trained from sc
 ---
 
 ## 🏋️ Training
+### Fine-Tuned Model
+- Loss: Average of CrossEntropyLoss on start and end positions
+- Optimizer: Adam
+- Epochs: 3–5 (configurable)
+- Batch Size: 16
+- Learning Rate: 2e-5
+
+### Scratch-Built Model
 - Loss: Average of CrossEntropyLoss on start and end positions
 - Optimizer: Adam
 - Epochs: 3–5 (configurable)
@@ -41,56 +58,12 @@ LearnGPT is a compact Transformer-based Question Answering model trained from sc
 
 ---
 
-## 💡 Inference Usage
-
-```python
-answer = model.answer_question(context="...", question="...")
-print("Answer:", answer)
-```
----
-
-## 📦 Setup & Usage
-```
-git clone https://github.com/yourusername/LearnGPT
-cd LearnGPT
-pip install -r requirements.txt
-python train.py
-python evaluate.py
-```
----
-
-## 📝 Project Structure
-LearnGPT/
-├── data/
-├── models/
-│   ├── transformer.py
-│   └── qa_model.py
-├── utils/
-├── train.py
-├── evaluate.py
-├── inference.py
-└── README.md
+## 📄 Report Link
+https://docs.google.com/document/d/11P7eEqbR9M4KSmNSmW4wQr7RUgiOG9MDhzMEdSBeRwg/edit?usp=sharing
 
 ---
 
-## 🔬 Results
-| Metric   | Score |
-| -------- | ----- |
-| EM       | 71.2% |
-| F1 Score | 82.6% |
+## 💻 The Coders
 
----
-
-## 📖 References
-SQuAD v1.1: https://rajpurkar.github.io/SQuAD-explorer/
-Vaswani et al., 2017: Attention Is All You Need
-HuggingFace Datasets and Tokenizers
-
----
-
-##👩‍💻 Author
-Abdul Rehman Arain
-Syeda Samaha Batool Rizvi
-Final Year CS Student, FAST NUCES Karachi
-
-
+- Abdul Rehman Arain (https://github.com/tRzBlizzard)
+- Syeda Samaha Batool Rizvi (https://github.com/samaha-rizvi-4578)
